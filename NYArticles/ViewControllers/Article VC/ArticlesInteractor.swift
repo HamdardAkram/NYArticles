@@ -36,12 +36,13 @@ class ArticlesInteractor: ArticlesInteractorProtocol {
             do {
                 let mostPopularData = try decoder.decode(MostPopularData.self, from: data!)
                 articles = mostPopularData.articles
+                assert(mostPopularData.status == "OK")
                 print(articles)
+                success(articles, 20)
             } catch {
                 print(error)
             }
             
-            success(articles, 20)
         }) { (error) in
             failure(error)
         }

@@ -27,9 +27,10 @@ struct Article: Codable {
 
 struct MostPopularData: Codable {
     let articles: [Article]
-    
+    let status: String
     enum CodingKeys : String, CodingKey {
         case articles = "results"
+        case status = "status"
     }
 }
 
